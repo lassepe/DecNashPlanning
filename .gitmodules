@@ -1,0 +1,3 @@
+[submodule "vendor/InteractionSimulator"]
+	path = vendor/intersim
+	url = https://github.com/sisl/InteractionSimulator
