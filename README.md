@@ -4,41 +4,23 @@ Decentralized game-theoretic planning using the [INTERACTION Dataset](https://in
 Code for "Multi-Vehicle Control in Roundabouts using Decentralized Game-Theoretic Planning" at IJCAI 2021 AI4AD Workshop.
 
 ## Getting started
-Clone the DecNashPlanning repository
+
+1. Clone the DecNashPlanning repository. This clone contains the [InteractionSimulator](https://github.com/sisl/InteractionSimulator.git) as a [git subtree](https://www.atlassian.com/git/tutorials/git-subtree).
 ```
 git clone https://github.com/sisl/DecNashPlanning.git
 cd DecNashPlanning
 ```
-Create and activate a conda environment with Python 3.7
-```
-conda create -y --name dnp python==3.7
-conda activate dnp
-```
-Clone InteractionSimulator and pip install the module.
-```
-git clone https://github.com/sisl/InteractionSimulator.git
-cd InteractionSimulator
-git checkout v0.0.2
-pip install -e .
-cd ..
-export PYTHONPATH=$(pwd):$PYTHONPATH
-```
-Install additional requirements
-```
-pip install -r requirements.txt
-```
-Install `ffmpeg` writer
-```
-conda install -c conda-forge ffmpeg
-```
-Copy INTERACTION Dataset files:
-The INTERACTION dataset contains a two folders which should be copied into a folder called `./InteractionSimulator/datasets`: 
-  - the contents of `recorded_trackfiles` should be copied to `./InteractionSimulator/datasets/trackfiles`
-  - the contents of `maps` should be copied to `./InteractionSimulator/datasets/maps`
 
+2. This package uses [poetry](https://python-poetry.org/) for dependency management. Once you've [setup poetry](https://python-poetry.org/docs/#installation), you can install all dependencies by running in the `./install.sh` script.
 
+3. In order for the `InteractionSimulator` to work, you need to place your copy of the `INTERACTION Daataset` in `./InteractionSimulator/datasets`
+    - the contents of `recorded_trackfiles` should be copied to `./InteractionSimulator/datasets/trackfiles`
+    - the contents of `maps` should be copied to `./InteractionSimulator/datasets/maps`
 
 ## Running experiments
+
+In order to run experiments, you need to activate the poetry environment via `poetry shell` and therein set the environment variables for the Julia project via `source .env`.
+
 You can run all experiments to generate trajectories and videos using `python experiments/exp_wrapper.py` (which makes successive calls to `experiments/experiment.py` with appropriate settings.
 
 To calculate metrics from already generated trajectories, run `python experiments/metrics.py`.
