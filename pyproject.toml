@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Arec Jamgocian <jamgochian95@gmail.com>"]
 license = "MIT"
+packages = [{ include = "src/decnash.py" }]
 
 [tool.poetry.dependencies]
 python = "~3.7.1"

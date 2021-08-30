@@ -1,3 +1,5 @@
+import os
+
 # experiment.py
 if __name__ == '__main__':
     loc = 0
@@ -7,7 +9,3 @@ if __name__ == '__main__':
             # run
             command = 'python experiments/experiment.py --loc %i --track %i --exp %s --frames %i' %(loc, track, exp, frames)
             os.system(command)
-            
-        
-        
-        
